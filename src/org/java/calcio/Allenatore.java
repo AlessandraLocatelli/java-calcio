@@ -8,6 +8,7 @@ public class Allenatore extends Persona  {
     //COSTRUTTORE
     public Allenatore(String nome, int eta, String strategia) {
         super(nome, eta);
+        this.strategia = strategia;
     }
 
     //METODI
@@ -20,6 +21,6 @@ public class Allenatore extends Persona  {
     @Override
     public String toString() {
         return  super.toString()+
-                "strategia='" + strategia + '\'';
+                " strategia='" + strategia + '\'';
     }
 }

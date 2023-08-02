@@ -27,6 +27,11 @@ public class Squadra {
     }
 
 
+    public void aggiungiAllenatore(Allenatore allenatore)
+    {
+
+        squadra.add(allenatore);
+    }
 
     public List<Persona> getSquadra() {
         return squadra;
