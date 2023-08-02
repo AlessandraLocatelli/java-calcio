@@ -12,6 +12,8 @@ public class Giocatore extends Persona {
     }
 
     //METODI
+
+
     public String getRuolo() {
         return ruolo;
     }
@@ -19,6 +21,6 @@ public class Giocatore extends Persona {
     @Override
     public String toString() {
         return  super.toString()+
-                "ruolo='" + ruolo + '\'';
+                " ruolo= " + ruolo + '\'';
     }
 }

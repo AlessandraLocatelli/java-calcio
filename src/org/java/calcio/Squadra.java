@@ -20,6 +20,13 @@ public class Squadra {
 
     //METODI
 
+    public void aggiungiGiocatore(Giocatore giocatore)
+    {
+
+        squadra.add(giocatore);
+    }
+
+
 
     public List<Persona> getSquadra() {
         return squadra;
