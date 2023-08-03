@@ -1,5 +1,8 @@
 package org.java.calcio;
+import java.time.LocalDate;
 import java.util.Arrays;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.Random;
 
 public class Main {
@@ -22,59 +25,81 @@ public class Main {
     private static final String[] NOMI_ALLENATORI =
             {
                     "Giuseppe Marconi", "Federico Bonelli", "Mattia Falconi",
-                    "Dario Verdi","Fabrizio Mori","Andrea Mangili","Davide Gritti",
+                    "Dario Verdi", "Fabrizio Mori", "Andrea Mangili", "Davide Gritti",
                     "Matteo Sancini"
+
+            };
+
+
+    private static final String[] NOMI_ARBITRI =
+            {
+                    "Giovanni Mazzoleni", "Valerio Brini", "Paolo Ravati", "Marco Fabrelli",
+                    "Giacomo Manzani", "Luca Raveschi", "Fausto Peretti"
 
             };
 
 
     private static final String[] RUOLI_GIOCATORI =
             {
-                 "Portiere","Attaccante","Difensore","Centrocampista"
+                    "Portiere", "Attaccante", "Difensore", "Centrocampista"
 
             };
 
     private static final String[] TATTICHE_ALLENATORI =
             {
-                    "Offensiva","Difensiva "
+                    "Offensiva", "Difensiva "
 
             };
 
 
-
     public static void main(String[] args) {
-
 
         Squadra squadra = new Squadra();
         Random r = new Random();
 
 
-
-        for(int i = 0; i < 11; i++){
-
+        for (int i = 0; i < 11; i++) {
 
             String nomeRandom = NOMI_GIOCATORI[r.nextInt(0, NOMI_GIOCATORI.length)];
-            int etaRandom = r.nextInt(18, 30);
+            LocalDate dataDiNascitaRandom = getDataDiNascitaRandom();
             String ruoloRandom = RUOLI_GIOCATORI[r.nextInt(0, RUOLI_GIOCATORI.length)];
-            Giocatore giocatore = new Giocatore(nomeRandom, etaRandom, ruoloRandom);
+            Giocatore giocatore = new Giocatore(nomeRandom, dataDiNascitaRandom, ruoloRandom);
             squadra.aggiungiGiocatore(giocatore);
         }
 
-
+        for (int i = 0; i < 2; i++) {
             String nomeRandom = NOMI_ALLENATORI[r.nextInt(0, NOMI_ALLENATORI.length)];
-            int etaRandom = r.nextInt(35,46);
+            LocalDate dataDiNascitaRandom = getDataDiNascitaRandom();
             String tatticaRandom = TATTICHE_ALLENATORI[r.nextInt(0, TATTICHE_ALLENATORI.length)];
-            Allenatore allenatore = new Allenatore(nomeRandom,etaRandom,tatticaRandom);
+            Allenatore allenatore = new Allenatore(nomeRandom, dataDiNascitaRandom, tatticaRandom);
             squadra.aggiungiAllenatore(allenatore);
+        }
+
+
+        String nomeRandom = NOMI_ARBITRI[r.nextInt(0, NOMI_ARBITRI.length)];
+        LocalDate dataDiNascitaRandom = getDataDiNascitaRandom();
+        Arbitro arbitro = new Arbitro(nomeRandom, dataDiNascitaRandom);
+
 
         System.out.println("CREAZIONE SQUADRA: ");
         System.out.println(squadra.getSquadra());
+        System.out.println("ARBITRO");
+        System.out.println(arbitro);
 
 
+    }
 
 
+    private static LocalDate getDataDiNascitaRandom() {
 
+        Random r = new Random();
 
+        int year = r.nextInt(1980,2003);
+        int month = 1;
+        int day = 1;
+
+        LocalDate bday = LocalDate.of(year,month,day);
+        return bday.plusDays(r.nextInt(365));
 
     }
 

@@ -33,6 +33,7 @@ public class Squadra {
         squadra.add(allenatore);
     }
 
+
     public List<Persona> getSquadra() {
         return squadra;
     }

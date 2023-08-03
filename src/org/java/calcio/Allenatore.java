@@ -1,15 +1,19 @@
 package org.java.calcio;
 
+import java.time.LocalDate;
+
 public class Allenatore extends Persona  {
 
     //CAMPI
     private String strategia;
 
     //COSTRUTTORE
-    public Allenatore(String nome, int eta, String strategia) {
-        super(nome, eta);
+
+    public Allenatore(String nome, LocalDate dataDiNascita, String strategia) {
+        super(nome, dataDiNascita);
         this.strategia = strategia;
     }
+
 
     //METODI
 
@@ -21,6 +25,6 @@ public class Allenatore extends Persona  {
     @Override
     public String toString() {
         return  super.toString()+
-                " strategia='" + strategia + '\'';
+                " strategia= " + strategia + '\'';
     }
 }
