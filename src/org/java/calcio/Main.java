@@ -26,7 +26,7 @@ public class Main {
             {
                     "Giuseppe Marconi", "Federico Bonelli", "Mattia Falconi",
                     "Dario Verdi", "Fabrizio Mori", "Andrea Mangili", "Davide Gritti",
-                    "Matteo Sancini"
+                    "Matteo Sancini","Luca Ghisalberti","Riccardo Marchion"
 
             };
 
@@ -54,9 +54,12 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Squadra squadra = new Squadra();
+        Squadra squadraCasa = new Squadra();
+        Squadra squadraOspite = new Squadra();
         Random r = new Random();
 
+
+        //CREAZIONE SQUADRA CASA
 
         for (int i = 0; i < 11; i++) {
 
@@ -64,27 +67,63 @@ public class Main {
             LocalDate dataDiNascitaRandom = getDataDiNascitaRandom();
             String ruoloRandom = RUOLI_GIOCATORI[r.nextInt(0, RUOLI_GIOCATORI.length)];
             Giocatore giocatore = new Giocatore(nomeRandom, dataDiNascitaRandom, ruoloRandom);
-            squadra.aggiungiGiocatore(giocatore);
+            squadraCasa.aggiungiGiocatore(giocatore);
         }
 
-        for (int i = 0; i < 2; i++) {
-            String nomeRandom = NOMI_ALLENATORI[r.nextInt(0, NOMI_ALLENATORI.length)];
+
+            String nomeRandomAllenatore1 = NOMI_ALLENATORI[r.nextInt(0, NOMI_ALLENATORI.length)];
+            LocalDate dataDiNascitaRandomAllenatore1 = getDataDiNascitaRandom();
+            String tatticaRandomAllenatore1 = TATTICHE_ALLENATORI[r.nextInt(0, TATTICHE_ALLENATORI.length)];
+            Allenatore allenatore1 = new Allenatore(nomeRandomAllenatore1, dataDiNascitaRandomAllenatore1, tatticaRandomAllenatore1);
+            squadraCasa.aggiungiAllenatore(allenatore1);
+
+
+
+
+        System.out.println("CREAZIONE SQUADRA CASA: ");
+        System.out.println(squadraCasa.getSquadra());
+
+
+        //CREAZIONE SQUADRA OSPITE
+
+        for (int i = 0; i < 11; i++) {
+
+            String nomeRandom = NOMI_GIOCATORI[r.nextInt(0, NOMI_GIOCATORI.length)];
             LocalDate dataDiNascitaRandom = getDataDiNascitaRandom();
-            String tatticaRandom = TATTICHE_ALLENATORI[r.nextInt(0, TATTICHE_ALLENATORI.length)];
-            Allenatore allenatore = new Allenatore(nomeRandom, dataDiNascitaRandom, tatticaRandom);
-            squadra.aggiungiAllenatore(allenatore);
+            String ruoloRandom = RUOLI_GIOCATORI[r.nextInt(0, RUOLI_GIOCATORI.length)];
+            Giocatore giocatore = new Giocatore(nomeRandom, dataDiNascitaRandom, ruoloRandom);
+            squadraOspite.aggiungiGiocatore(giocatore);
         }
 
+
+            String nomeRandomAllenatore2 = NOMI_ALLENATORI[r.nextInt(0, NOMI_ALLENATORI.length)];
+            LocalDate dataDiNascitaRandomAllenatore2 = getDataDiNascitaRandom();
+            String tatticaRandomAllenatore2 = TATTICHE_ALLENATORI[r.nextInt(0, TATTICHE_ALLENATORI.length)];
+            Allenatore allenatore2 = new Allenatore(nomeRandomAllenatore2, dataDiNascitaRandomAllenatore2, tatticaRandomAllenatore2);
+            squadraOspite.aggiungiAllenatore(allenatore2);
+
+
+
+
+        System.out.println("CREAZIONE SQUADRA OSPITE: ");
+        System.out.println(squadraOspite.getSquadra());
+
+        //AGGIUNTA ARBITRO
 
         String nomeRandom = NOMI_ARBITRI[r.nextInt(0, NOMI_ARBITRI.length)];
         LocalDate dataDiNascitaRandom = getDataDiNascitaRandom();
         Arbitro arbitro = new Arbitro(nomeRandom, dataDiNascitaRandom);
 
-
-        System.out.println("CREAZIONE SQUADRA: ");
-        System.out.println(squadra.getSquadra());
         System.out.println("ARBITRO");
         System.out.println(arbitro);
+
+        //CREAZIONE PARTITA
+        Partita partita = new Partita(squadraOspite,squadraCasa,arbitro);
+        System.out.println(partita);
+
+
+
+
 
 
     }

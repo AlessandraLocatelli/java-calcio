@@ -8,6 +8,7 @@ public class Squadra {
     //CAMPI
      private List<Persona> squadra;
 
+
     //COSTRUTTORE
 
     public Squadra() {
@@ -38,4 +39,11 @@ public class Squadra {
         return squadra;
     }
 
+
+    @Override
+    public String toString() {
+        return " " + squadra;
+    }
 }
+
+

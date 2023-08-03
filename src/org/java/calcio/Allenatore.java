@@ -24,7 +24,7 @@ public class Allenatore extends Persona  {
 
     @Override
     public String toString() {
-        return  super.toString()+
+        return "Allenatore:" +super.toString()+
                 " strategia= " + strategia + '\'';
     }
 }

@@ -14,7 +14,7 @@ public class Arbitro extends Persona {
 
     @Override
     public String toString() {
-        return super.toString()+
+        return "Arbitro "+ super.toString()+
                 " ruolo= " + ruolo + '\'';
     }
 }
