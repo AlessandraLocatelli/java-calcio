@@ -7,14 +7,15 @@ public class Squadra {
 
     //CAMPI
      private List<Persona> squadra;
+     String nomeSquadra;
 
 
     //COSTRUTTORE
 
-    public Squadra() {
+    public Squadra(String nomeSquadra) {
 
         squadra = new ArrayList<>();
-
+        this.nomeSquadra = nomeSquadra;
 
     }
 
@@ -42,7 +43,7 @@ public class Squadra {
 
     @Override
     public String toString() {
-        return " " + squadra;
+        return " " +nomeSquadra+ " "+ squadra;
     }
 }
 

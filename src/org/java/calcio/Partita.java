@@ -37,14 +37,26 @@ public class Partita {
 
    }
 
+   //metodo per concludere partita
+
+    public boolean concludiPartita ()
+    {
+        System.out.println("Partita Terminata");
+        return true;
+
+    }
+
+
+
+
    //metodo per segnare goal
-    public void segnaGoal(boolean iniziata) throws RuntimeException
+    public int segnaGoal(boolean iniziata) throws RuntimeException
     {
         int goalSegnati = 0;
 
         if(!iniziata)
         {
-            throw new RuntimeException("La partita non è ancora iniziata!");
+            throw new RuntimeException("non hai iniziato la partita, non puoi segnare dei goal!");
         }
 
         Random r = new Random();
@@ -54,20 +66,18 @@ public class Partita {
         {
             case 1:
                 System.out.println("Ha segnato la squadra: "+squadraCasa);
-                goalSegnati++;
-                System.out.println("Numero di goal: ");
                 break;
             case 2:
                 System.out.println("Ha segnato la squadra: "+squadraOspite);
-                goalSegnati++;
-                System.out.println("Numero di goal: ");
                 break;
             default:
                 break;
         }
 
 
+        goalSegnati++;
 
+        return goalSegnati;
 
     }
 
